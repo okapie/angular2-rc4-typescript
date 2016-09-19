@@ -98,7 +98,7 @@ export class TopComponent implements OnInit {
 					let concertMonth = getConcertUTCTime.getMonth() + 1;
 					let concertDay = getConcertUTCTime.getDate();
 
-					let tempDate = concertYear + '/' + concertMonth + '/' + concertDay;
+					let tempDate = `${concertYear}/${concertMonth}/${concertDay}`;
 
 					let elm = [{
 						date: tempDate,
@@ -116,7 +116,7 @@ export class TopComponent implements OnInit {
 							this.getPastConcerts.push(elm);
 						} else if (numThisMonth === concertMonth) {
 							this.getCurrentConcerts.push(elm);
-							this.model.showCurrentYearMonth = numThisYear + '/' + numThisMonth;
+							this.model.showCurrentYearMonth = `${numThisYear}/${numThisMonth}`;
 						} else if (numThisMonth < concertMonth) {
 							this.getNextConcerts.push(elm);
 						}
@@ -230,11 +230,11 @@ export class TopComponent implements OnInit {
 				name: item.concert_name
 			}]);
 			let tempDate =
-				item.concert_places.event_date.split('-')[0] +
-				'/' +
-				item.concert_places.event_date.split('-')[1] +
-				'/' +
-				item.concert_places.event_date.split('-')[2];
+				`${item.concert_places.event_date.split('-')[0]}
+				/
+				${item.concert_places.event_date.split('-')[1]}
+				/
+				${item.concert_places.event_date.split('-')[2]}`;
 			let elm = [{
 				date: tempDate,
 				place: item.concert_places.concert_place,
@@ -269,7 +269,7 @@ export class TopComponent implements OnInit {
 			let concertMonth = getConcertUTCTime.getMonth() + 1;
 			let concertDay = getConcertUTCTime.getDate();
 
-			let tempDate = concertYear + '/' + concertMonth + '/' + concertDay;
+			let tempDate = `${concertYear}/${concertMonth}/${concertDay}`;
 			let elm = [{
 				date: tempDate,
 				place: item.concert_place,
@@ -285,7 +285,7 @@ export class TopComponent implements OnInit {
 				this.getPastConcerts.push(elm);
 			} else if (numThisMonth === concertMonth) {
 				this.getCurrentConcerts.push(elm);
-				this.model.showCurrentYearMonth = numThisYear + '/' + numThisMonth;
+				this.model.showCurrentYearMonth = `${numThisYear}/${numThisMonth}`;
 			} else if (numThisMonth < concertMonth) {
 				this.getNextConcerts.push(elm);
 			}
